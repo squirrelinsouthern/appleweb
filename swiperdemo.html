@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/css/swiper.css">
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #f6f8f9 0%,#e5ebee 73%,#e5ebee 73%,#e5ebee 74%,#d7dee3 75%,#f5f7f9 100%); 
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: rgb(66, 66, 66);
+      margin: 0;
+      padding: 0;
+    }
+    
+
+    .swiper-container {
+      width: 400px;
+      height: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+    .apple>.swiper-slide{
+      width: 60px !important;
+      height: 45px !important;
+      margin-top: -9px;
+    }
+    .apple{
+      width: 200px;
+      margin-left: 80px;
+      margin-right: 80px;
+    }
+    .gallery-top {
+      padding-top: 150px;
+      height: 400px;
+      width: 800px;
+    }
+
+    .gallery-thumbs {
+      height: 45px;
+      width: 800px;
+      box-sizing: border-box;
+      padding: 10px 0;
+      background-image: url('./imgs/panel.jpg');
+      border:1px solid rgb(211, 211, 211);
+    }
+
+    .gallery-thumbs .swiper-slide {
+      height: 100%;
+      opacity: 0.4;
+    }
+
+    .gallery-thumbs .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+
+    /* .hahah{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    } */
+    p{
+      position: absolute;
+      font-size: 40px;
+      font-weight: 400;
+      left:50%;
+      margin-top: 50px;
+      margin-left: -370px;
+      text-align: center;
+      color:rgb(59, 59, 59);
+    }
+  </style>
+</head>
+
+<body>
+  <p>A Beautiful Apple-style Slideshow Gallery</p>
+ 
+    <!-- Swiper -->
+    <div class="swiper-container gallery-top">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-image:url(./imgs/sample_slides/macbook.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/sample_slides/iphone.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/sample_slides/imac.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/sample_slides/info.jpg)"></div>
+      </div>
+
+    </div>
+    <div class="swiper-container gallery-thumbs">
+      <div class="swiper-wrapper apple">
+        <div class="swiper-slide" style="background-image:url(./imgs/active_bg3.jpg);"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/active_bg2.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/active_bg1.jpg)"></div>
+        <div class="swiper-slide" style="background-image:url(./imgs/active_bg4.jpg)"></div>
+      </div>
+    </div>
+
+  
+
+  <!-- Swiper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 1,
+      slidesPerView: 4,
+      loop: false,
+      freeMode: true,
+      loopedSlides: 4, //looped slides should be the same
+      watchSlidesVisibility: true,
+      watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 1,
+      loop: false,
+      loopedSlides: 4, //looped slides should be the same
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+    });
+  </script>
+</body>
+
+</html>
